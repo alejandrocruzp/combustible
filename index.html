@@ -63,14 +63,14 @@
 
     .resultado {
       margin-top: 20px;
-      font-size: 18px;
+      font-size: 20px;
       text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🛻 Calculadora de Combustible</h2>
+    <h2>⛽ Calculadora de Consumo</h2>
 
     <label for="trip">Kilómetros del trip:</label>
     <input type="number" id="trip" placeholder="Ej: 87.5" step="0.1">
@@ -78,7 +78,7 @@
     <label for="consumo">Consumo (L/100km):</label>
     <input type="number" id="consumo" placeholder="Ej: 6.4" step="0.1">
 
-    <button onclick="calcular()">Calcular litros usados</button>
+    <button onclick="calcular()">Calcular</button>
 
     <div class="resultado" id="resultado"></div>
   </div>
@@ -94,10 +94,11 @@
       }
 
       const litros = (trip * consumo) / 100;
+      const lPorKm = consumo / 100;
+
       document.getElementById('resultado').innerHTML =
-        `🚗 Distancia: ${trip} km<br>` +
-        `⛽ Consumo: ${consumo} L/100km<br>` +
-        `💧 Litros usados: <strong>${litros.toFixed(2)} L</strong>`;
+        `💧 Litros usados: <strong>${litros.toFixed(2)} L</strong><br>` +
+        `📏 Rendimiento: <strong>${lPorKm.toFixed(3)} L/km</strong>`;
     }
   </script>
 </body>
